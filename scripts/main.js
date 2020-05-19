@@ -13,7 +13,7 @@ const createBoard = () => {
     for (let j = 0; j < 3; j++) {
       // Creates a table cell with text
       const tableCell = document.createElement('td');
-      const cellContent = document.createTextNode('X');
+      const cellContent = document.createTextNode('');
       tableCell.appendChild(cellContent);
 
       // Appends cells to row
