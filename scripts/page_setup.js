@@ -55,12 +55,13 @@ class Game {
     // Checks if cell is empty
     if (this.board[x][y] === '') {
       // If empty the cell is filled with the player's symbol
+      console.log(this.turn);
       this.board[x][y] =
         this.turn === 0 ? this.playerOneSymbol : this.playerTwoSymbol;
-      // Visible board is updated
-      this.updateBoard();
       // Changes the current turn
       this.turn = Number(!this.turn);
+      // Visible board is updated
+      this.updateBoard();
     }
   }
 
@@ -84,26 +85,22 @@ class Game {
     console.log(this.checkDiagonal());
   }
 
-  // Not working
   checkVertical() {
     for (let i = 0; i < 3; i++) {
-      let symbolsInARow = 0;
-      let currentSymbol = '';
-      for (let j = 0; j < 3; j++) {
-        if (this.board[j][i] === currentSymbol) {
-          symbolsInARow++;
-          if (symbolsInARow === 3) {
-            return true;
-          }
-        } else {
-          currentSymbol = this.board[j][i];
-        }
+      if (
+        this.board[0][i] !== '' &&
+        this.board[0][i] === this.board[1][i] &&
+        this.board[1][i] === this.board[2][i]
+      ) {
+        return true;
       }
-      return false;
     }
+    return false;
   }
 
   checkHorizontal() {}
+
+  checkDiagonal() {}
 
   clearBoard() {
     for (let i = 0; i < 3; i++) {
