@@ -85,6 +85,7 @@ class Game {
     console.log(this.checkDiagonal());
   }
 
+  // Checks for three identical vertical symbols
   checkVertical() {
     for (let i = 0; i < 3; i++) {
       if (
@@ -92,12 +93,14 @@ class Game {
         this.board[0][i] === this.board[1][i] &&
         this.board[1][i] === this.board[2][i]
       ) {
+        // Three in a row exists
         return true;
       }
     }
     return false;
   }
 
+  // Checks for three identical horizontal symbols
   checkHorizontal() {
     for (let i = 0; i < 3; i++) {
       if (
@@ -105,13 +108,31 @@ class Game {
         this.board[i][0] === this.board[i][1] &&
         this.board[i][1] === this.board[i][2]
       ) {
+        // Three in a row exists
         return true;
       }
     }
     return false;
   }
 
-  checkDiagonal() {}
+  // Checks for three identical diagonal symbols
+  checkDiagonal() {
+    if (
+      this.board[0][0] !== '' &&
+      this.board[0][0] === this.board[1][1] &&
+      this.board[1][1] === this.board[2][2]
+    ) {
+      return true;
+    } else if (
+      this.board[0][2] !== '' &&
+      this.board[0][2] === this.board[1][1] &&
+      this.board[1][1] === this.board[2][0]
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   clearBoard() {
     for (let i = 0; i < 3; i++) {
