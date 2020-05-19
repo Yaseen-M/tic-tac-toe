@@ -8,6 +8,7 @@ class Game {
     ];
     this.playerOneSymbol = 'X';
     this.playerTwoSymbol = '0';
+    this.winner = null;
     this.createBoard();
   }
 
