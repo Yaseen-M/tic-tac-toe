@@ -74,7 +74,36 @@ class Game {
         cell.textContent = this.board[i][j];
       }
     }
+    this.checkForWinner();
   }
+
+  // TODO: Create check for winner functionality
+  checkForWinner() {
+    console.log(this.checkVertical());
+    console.log(this.checkHorizontal());
+    console.log(this.checkDiagonal());
+  }
+
+  // Not working
+  checkVertical() {
+    for (let i = 0; i < 3; i++) {
+      let symbolsInARow = 0;
+      let currentSymbol = '';
+      for (let j = 0; j < 3; j++) {
+        if (this.board[j][i] === currentSymbol) {
+          symbolsInARow++;
+          if (symbolsInARow === 3) {
+            return true;
+          }
+        } else {
+          currentSymbol = this.board[j][i];
+        }
+      }
+      return false;
+    }
+  }
+
+  checkHorizontal() {}
 
   clearBoard() {
     for (let i = 0; i < 3; i++) {
