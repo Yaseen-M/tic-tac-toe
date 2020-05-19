@@ -2,13 +2,33 @@ body {
   background-color: #f7567c;
   font-family: 'Poppins', sans-serif;
   color: #fcfcfc;
+  margin: 0;
 }
 
 h1 {
-  font-size: 100px;
+  font-size: 75px;
   text-align: center;
+  text-shadow: 5px 5px #558abb;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 table {
-  font-family: 'Permanent Marker', cursive;
+  margin: auto;
+  font-size: 150px;
+  border-collapse: collapse;
+}
+
+td {
+  background-color: #fcfcfc;
+  min-width: 200px;
+  min-height: 200px;
+  text-align: center;
+  color: #222831;
+  border: 4px solid #558abb;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
 }
