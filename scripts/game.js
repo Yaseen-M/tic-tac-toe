@@ -78,11 +78,14 @@ class Game {
     this.checkForWinner();
   }
 
-  // TODO: Create check for winner functionality
   checkForWinner() {
-    console.log(this.checkVertical());
-    console.log(this.checkHorizontal());
-    console.log(this.checkDiagonal());
+    if (
+      this.checkVertical() ||
+      this.checkHorizontal() ||
+      this.checkDiagonal()
+    ) {
+      alert('We have a winner!');
+    }
   }
 
   // Checks for three identical vertical symbols
