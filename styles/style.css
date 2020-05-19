@@ -15,14 +15,14 @@ h1 {
 
 table {
   margin: auto;
-  font-size: 150px;
+  font-size: 120px;
   border-collapse: collapse;
 }
 
 td {
   background-color: #fcfcfc;
-  min-width: 200px;
-  min-height: 200px;
+  width: 200px;
+  height: 200px;
   text-align: center;
   color: #222831;
   border: 4px solid #558abb;
