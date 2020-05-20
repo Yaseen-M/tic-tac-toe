@@ -96,6 +96,7 @@ class Game {
       this.checkDiagonal()
     ) {
       this.winner = this.turn;
+      this.players[this.winner]['score'] += 1;
       Swal.fire({
         titleText:
           this.winner === 'tie'
@@ -105,7 +106,7 @@ class Game {
         showConfirmButton: false,
         timerProgressBar: true,
       });
-      this.clearBoard();
+      this.restart();
     }
   }
 
