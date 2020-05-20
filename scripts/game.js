@@ -16,17 +16,20 @@ class Game {
 
   // Creates the game board
   createGrid() {
-    const grid = document.createElement('section');
+    const grid = document.createElement('div');
     grid.setAttribute('id', 'grid');
+
     for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; i++) {
-        const cell = document.createElement('p');
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement('div');
+        cell.setAttribute('class', 'cell');
         cell.setAttribute('id', `cell-${i}-${j}`);
+
         grid.appendChild(cell);
       }
     }
 
-    const container = document.querySelector('.container');
+    const container = document.querySelector('#grid-container');
     container.appendChild(grid);
   }
 
