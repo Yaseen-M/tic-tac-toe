@@ -69,21 +69,7 @@ class Game {
       this.updateBoard();
 
       // Checks if game is over
-      let gameOver = false;
-      if (this.isTie()) {
-        this.winnerUpdate(true);
-        gameOver = true;
-      } else if (this.isWinner()) {
-        this.winnerUpdate(false);
-        gameOver = true;
-      }
-
-      if (gameOver) {
-        this.showEndMsg();
-        this.restart();
-        console.log(this.players[0]['score']);
-        console.log(this.players[1]['score']);
-      }
+      this.isGameOver();
 
       // Changes the current turn
       this.turn = Number(!this.turn);
@@ -102,53 +88,25 @@ class Game {
     }
   }
 
-  winnerUpdate(noWinner) {
-    if (noWinner) {
-      this.winner = 'tie';
-    } else {
-      this.winner = this.turn;
-      this.players[this.winner]['score'] += 1;
-    }
-  }
-
-  showEndMsg() {
-    Swal.fire({
-      titleText:
-        this.winner === 'tie'
-          ? `It's a ${this.winner}!`
-          : `Player ${this.winner + 1} wins!`,
-      timer: 3000,
-      showConfirmButton: false,
-      timerProgressBar: true,
-    });
-  }
-
-  isTie() {
-    let cellsFilled = 0;
-    this.gridCoords.forEach((row) => {
-      row.forEach((cell) => {
-        if (cell !== '') {
-          cellsFilled++;
-        }
-      });
-    });
-    if (cellsFilled === 9) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   // Checks if game is over
-  isWinner() {
+  isGameOver() {
     if (
       this.checkVertical() ||
       this.checkHorizontal() ||
       this.checkDiagonal()
     ) {
-      return true;
-    } else {
-      return false;
+      this.winner = this.turn;
+      this.players[this.winner]['score'] += 1;
+      Swal.fire({
+        titleText:
+          this.winner === 'tie'
+            ? `It's a ${this.winner}!`
+            : `Player ${this.winner + 1} wins!`,
+        timer: 3000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      });
+      this.restart();
     }
   }
 
@@ -207,8 +165,8 @@ class Game {
         this.gridCoords[i][j] = '';
       }
     }
-    // this.winner = this.turn;
-    // console.log('Winner: ' + this.winner);
+    this.winner = this.turn;
+    console.log('Winner: ' + this.winner);
     this.updateBoard();
   }
 
