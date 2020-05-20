@@ -14,17 +14,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-table {
-  margin: auto;
-  font-size: 120px;
-  border-collapse: collapse;
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+  background-color: white;
 }
 
-td {
+#grid p {
+  font-size: 12px;
   background-color: #fcfcfc;
-  width: 200px;
-  height: 200px;
-  max-width: 200px;
   text-align: center;
   color: #222831;
   border: 4px solid #558abb;

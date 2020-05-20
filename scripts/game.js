@@ -2,7 +2,7 @@ class Game {
   // Creates game
   constructor() {
     // Creates game attributes
-    this.board = [
+    this.gridCoords = [
       ['', '', ''],
       ['', '', ''],
       ['', '', ''],
@@ -11,39 +11,23 @@ class Game {
     this.playerTwoSymbol = '0';
     this.turn = 0;
     this.winner = null;
-    this.createBoard();
+    this.createGrid();
   }
 
   // Creates the game board
-  createBoard() {
-    // Creates table element
-    const table = document.createElement('table');
-
-    // Sets the id of the board
-    table.setAttribute('id', 'board');
-
+  createGrid() {
+    const grid = document.createElement('section');
+    grid.setAttribute('id', 'grid');
     for (let i = 0; i < 3; i++) {
-      // Creates a table row
-      const tableRow = document.createElement('tr');
-
-      for (let j = 0; j < 3; j++) {
-        // Creates a table cell
-        const tableCell = document.createElement('td');
-
-        // Sets the id of the cell as it coords
-        tableCell.setAttribute('id', `cell-${i}-${j}`);
-
-        // Appends cells to row
-        tableRow.append(tableCell);
+      for (let j = 0; j < 3; i++) {
+        const cell = document.createElement('p');
+        cell.setAttribute('id', `cell-${i}-${j}`);
+        grid.appendChild(cell);
       }
-
-      // Appens table row to the table
-      table.appendChild(tableRow);
     }
 
-    // Outputs table to the web page
     const container = document.querySelector('.container');
-    container.appendChild(table);
+    container.appendChild(grid);
   }
 
   // Changes the value of the clicked cell
@@ -53,10 +37,10 @@ class Game {
     const y = cellID[7];
 
     // Checks if cell is empty
-    if (this.board[x][y] === '') {
+    if (this.gridCoords[x][y] === '') {
       // If empty the cell is filled with the player's symbol
       console.log(this.turn);
-      this.board[x][y] =
+      this.gridCoords[x][y] =
         this.turn === 0 ? this.playerOneSymbol : this.playerTwoSymbol;
       // Changes the current turn
       this.turn = Number(!this.turn);
@@ -72,7 +56,7 @@ class Game {
       for (let j = 0; j < 3; j++) {
         // Replaces visibile board text with game object board text
         const cell = document.querySelector(`#cell-${i}-${j}`);
-        cell.textContent = this.board[i][j];
+        cell.textContent = this.gridCoords[i][j];
       }
     }
     this.checkForWinner();
@@ -92,9 +76,9 @@ class Game {
   checkVertical() {
     for (let i = 0; i < 3; i++) {
       if (
-        this.board[0][i] !== '' &&
-        this.board[0][i] === this.board[1][i] &&
-        this.board[1][i] === this.board[2][i]
+        this.gridCoords[0][i] !== '' &&
+        this.gridCoords[0][i] === this.gridCoords[1][i] &&
+        this.gridCoords[1][i] === this.gridCoords[2][i]
       ) {
         // Three in a row exists
         return true;
@@ -107,9 +91,9 @@ class Game {
   checkHorizontal() {
     for (let i = 0; i < 3; i++) {
       if (
-        this.board[i][0] !== '' &&
-        this.board[i][0] === this.board[i][1] &&
-        this.board[i][1] === this.board[i][2]
+        this.gridCoords[i][0] !== '' &&
+        this.gridCoords[i][0] === this.gridCoords[i][1] &&
+        this.gridCoords[i][1] === this.gridCoords[i][2]
       ) {
         // Three in a row exists
         return true;
@@ -121,15 +105,15 @@ class Game {
   // Checks for three identical diagonal symbols
   checkDiagonal() {
     if (
-      this.board[0][0] !== '' &&
-      this.board[0][0] === this.board[1][1] &&
-      this.board[1][1] === this.board[2][2]
+      this.gridCoords[0][0] !== '' &&
+      this.gridCoords[0][0] === this.gridCoords[1][1] &&
+      this.gridCoords[1][1] === this.gridCoords[2][2]
     ) {
       return true;
     } else if (
-      this.board[0][2] !== '' &&
-      this.board[0][2] === this.board[1][1] &&
-      this.board[1][1] === this.board[2][0]
+      this.gridCoords[0][2] !== '' &&
+      this.gridCoords[0][2] === this.gridCoords[1][1] &&
+      this.gridCoords[1][1] === this.gridCoords[2][0]
     ) {
       return true;
     } else {
@@ -140,7 +124,7 @@ class Game {
   clearBoard() {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        this.board[i][j] = '';
+        this.gridCoords[i][j] = '';
       }
     }
     this.updateBoard();
