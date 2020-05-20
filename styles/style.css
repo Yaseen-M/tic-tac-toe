@@ -6,11 +6,10 @@ body {
 }
 
 h1 {
-  font-size: 75px;
+  font-size: 60px;
   text-align: center;
   text-shadow: 4px 4px #558abb;
   margin: 0;
-  margin-bottom: 20px;
 }
 
 #main-container {
@@ -40,4 +39,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#dev {
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
 }
