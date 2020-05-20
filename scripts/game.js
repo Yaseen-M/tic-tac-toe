@@ -10,11 +10,11 @@ class Game {
     this.playerOneSymbol = 'X';
     this.playerTwoSymbol = '0';
     this.turn = 0;
-    this.winner = null;
+    this.winner = 'draw';
     this.createGrid();
   }
 
-  // Creates the game board
+  // Creates the game grid
   createGrid() {
     const grid = document.createElement('div');
     grid.setAttribute('id', 'grid');
@@ -22,14 +22,19 @@ class Game {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         const cell = document.createElement('div');
+
         cell.setAttribute('class', 'cell');
         cell.setAttribute('id', `cell-${i}-${j}`);
+
+        cell.onclick = function () {
+          game.cellClick(this.getAttribute('id'));
+        };
 
         grid.appendChild(cell);
       }
     }
 
-    const container = document.querySelector('#grid-container');
+    const container = document.querySelector('#main-container');
     container.appendChild(grid);
   }
 
@@ -42,7 +47,6 @@ class Game {
     // Checks if cell is empty
     if (this.gridCoords[x][y] === '') {
       // If empty the cell is filled with the player's symbol
-      console.log(this.turn);
       this.gridCoords[x][y] =
         this.turn === 0 ? this.playerOneSymbol : this.playerTwoSymbol;
       // Changes the current turn
@@ -71,7 +75,8 @@ class Game {
       this.checkHorizontal() ||
       this.checkDiagonal()
     ) {
-      alert('We have a winner!');
+      this.winner = this.turn;
+      this.clearBoard();
     }
   }
 
@@ -130,38 +135,11 @@ class Game {
         this.gridCoords[i][j] = '';
       }
     }
+    this.winner = this.turn;
+    console.log('Winner: ' + this.winner);
     this.updateBoard();
   }
 }
 
 // Creates game object
 const game = new Game();
-
-// Cell click event listeners
-document.querySelector('#cell-0-0').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-0-1').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-0-2').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-1-0').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-1-1').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-1-2').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-2-0').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-2-1').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};
-document.querySelector('#cell-2-2').onclick = function () {
-  game.cellClick(this.getAttribute('id'));
-};

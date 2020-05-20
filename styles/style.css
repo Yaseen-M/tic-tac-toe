@@ -19,15 +19,10 @@ h1 {
   margin: 0 auto;
 }
 
-#grid-container {
-  margin: 0 auto;
-}
-
 #grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
   grid-template-rows: repeat(3, 200px);
-  margin: 0 auto;
 }
 
 .cell {
@@ -36,6 +31,4 @@ h1 {
   background-color: #fcfcfc;
   color: #222831;
   border: 4px solid #558abb;
-  width: 100%;
-  height: 100%;
 }
