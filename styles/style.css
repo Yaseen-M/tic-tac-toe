@@ -3,7 +3,6 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #fcfcfc;
   margin: 0;
-  margin-bottom: 70px;
 }
 
 h1 {
@@ -17,6 +16,7 @@ h1 {
 #main-container {
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 #grid-container {
@@ -26,8 +26,8 @@ h1 {
 
 #grid {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-columns: repeat(3, minmax(90px, 220px));
+  grid-template-rows: repeat(3, minmax(90px, 220px));
   margin-left: auto;
   margin-right: auto;
 }
@@ -37,7 +37,6 @@ h1 {
   background-color: #fcfcfc;
   color: #222831;
   border: 4px solid #558abb;
-
   display: flex;
   justify-content: center;
   align-items: center;
