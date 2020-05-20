@@ -97,9 +97,10 @@ class Game {
         this.winner === 'tie'
           ? `It's a ${this.winner}!`
           : `Player ${this.winner + 1} wins!`,
-      timer: 3000,
+      timer: 2000,
       showConfirmButton: false,
       timerProgressBar: true,
+      allowOutsideClick: false,
     });
   }
 
