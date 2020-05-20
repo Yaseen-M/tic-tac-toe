@@ -34,7 +34,7 @@ class Game {
       }
     }
 
-    const container = document.querySelector('#main-container');
+    const container = document.querySelector('#grid-container');
     container.appendChild(grid);
   }
 
