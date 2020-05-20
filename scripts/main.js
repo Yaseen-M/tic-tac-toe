@@ -7,10 +7,20 @@ class Game {
       ['', '', ''],
       ['', '', ''],
     ];
-    this.playerOneSymbol = 'X';
-    this.playerTwoSymbol = '0';
+    this.players = [
+      {
+        name: '',
+        symbol: 'X',
+        score: 0,
+      },
+      {
+        name: '',
+        symbol: '0',
+        score: 0,
+      },
+    ];
     this.turn = 0;
-    this.winner = 'draw';
+    this.winner = 'tie';
     this.createGrid();
   }
 
@@ -53,15 +63,16 @@ class Game {
     if (this.gridCoords[x][y] === '') {
       // If empty the cell is filled with the player's symbol
       this.gridCoords[x][y] =
-        this.turn === 0 ? this.playerOneSymbol : this.playerTwoSymbol;
-      // Changes the current turn
-      this.turn = Number(!this.turn);
+        this.turn === 0 ? this.players[0]['symbol'] : this.players[1]['symbol'];
 
       // DOM board is updated
       this.updateBoard();
 
       // Checks if game is over
       this.isGameOver();
+
+      // Changes the current turn
+      this.turn = Number(!this.turn);
     }
   }
 
@@ -85,6 +96,16 @@ class Game {
       this.checkDiagonal()
     ) {
       this.winner = this.turn;
+      Swal.fire({
+        titleText:
+          this.winner === 'tie'
+            ? `It's a ${this.winner}!`
+            : `Player ${this.winner + 1} wins!`,
+        timer: 3000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      });
+      this.clearBoard();
     }
   }
 
@@ -150,26 +171,9 @@ class Game {
 
   restart() {
     this.clearBoard();
-    this.winner = 'draw';
-  }
-}
-
-class Utility {
-  constructor() {
-    console.log('Beep boop. Constructing utility module.');
-  }
-
-  sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
+    this.winner = 'tie';
   }
 }
 
 // Creates game object
 const game = new Game();
-
-// Creates utility object
-const utility = new Utility();
