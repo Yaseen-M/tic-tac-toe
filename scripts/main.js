@@ -16,16 +16,20 @@ class Game {
 
   // Creates the game grid
   createGrid() {
+    // Creates grid element
     const grid = document.createElement('div');
     grid.setAttribute('id', 'grid');
 
+    // Fills grid with cells
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         const cell = document.createElement('div');
 
+        // Assigns relevant class and id
         cell.setAttribute('class', 'cell');
         cell.setAttribute('id', `cell-${i}-${j}`);
 
+        // Assigns onclick functionality
         cell.onclick = function () {
           game.cellClick(this.getAttribute('id'));
         };
@@ -34,6 +38,7 @@ class Game {
       }
     }
 
+    // Pushes grid to DOM
     const container = document.querySelector('#grid-container');
     container.appendChild(grid);
   }
@@ -51,12 +56,16 @@ class Game {
         this.turn === 0 ? this.playerOneSymbol : this.playerTwoSymbol;
       // Changes the current turn
       this.turn = Number(!this.turn);
-      // Visible board is updated
+
+      // DOM board is updated
       this.updateBoard();
+
+      // Checks if game is over
+      this.isGameOver();
     }
   }
 
-  // Updates visible board
+  // Updates DOM board
   updateBoard() {
     // Iterates through rows and columns
     for (let i = 0; i < 3; i++) {
@@ -66,17 +75,16 @@ class Game {
         cell.textContent = this.gridCoords[i][j];
       }
     }
-    this.checkForWinner();
   }
 
-  checkForWinner() {
+  // Checks if game is over
+  isGameOver() {
     if (
       this.checkVertical() ||
       this.checkHorizontal() ||
       this.checkDiagonal()
     ) {
       this.winner = this.turn;
-      this.clearBoard();
     }
   }
 
@@ -139,7 +147,29 @@ class Game {
     console.log('Winner: ' + this.winner);
     this.updateBoard();
   }
+
+  restart() {
+    this.clearBoard();
+    this.winner = 'draw';
+  }
+}
+
+class Utility {
+  constructor() {
+    console.log('Beep boop. Constructing utility module.');
+  }
+
+  sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
 }
 
 // Creates game object
 const game = new Game();
+
+// Creates utility object
+const utility = new Utility();
