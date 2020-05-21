@@ -97,7 +97,7 @@ class Game {
         this.winner === 'tie'
           ? `It's a ${this.winner}!`
           : `Player ${this.winner + 1} wins!`,
-      timer: 2000,
+      timer: 3000,
       showConfirmButton: false,
       timerProgressBar: true,
       allowOutsideClick: false,
