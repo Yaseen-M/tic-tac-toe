@@ -12,6 +12,12 @@ h1 {
   margin: 0;
 }
 
+a {
+  color: #222831;
+  text-decoration: none;
+  font-style: italic;
+}
+
 #main-container {
   width: 80%;
   margin: 0 auto;
