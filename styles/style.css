@@ -38,7 +38,7 @@ a {
 }
 
 .cell {
-  font-size: 150px;
+  font-size: 170px;
   background-color: #fcfcfc;
   color: #222831;
   border: 4px solid #558abb;
@@ -54,6 +54,13 @@ a {
   margin-bottom: 20px;
 }
 
+/* #game-info {
+  background-color: blueviolet;
+  height: 220px;
+  width: 660px;
+  margin: 20px auto;
+} */
+
 @media only screen and (max-width: 55em) {
   #grid {
     grid-template-columns: repeat(3, 180px);
@@ -62,9 +69,12 @@ a {
   h1 {
     font-size: 60px;
   }
+  .cell {
+    font-size: 150px;
+  }
 }
 
-@media only screen and (max-width: 35em) {
+@media only screen and (max-width: 40em) {
   #grid {
     grid-template-columns: repeat(3, 130px);
     grid-template-rows: repeat(3, 130px);
@@ -72,14 +82,20 @@ a {
   h1 {
     font-size: 50px;
   }
+  .cell {
+    font-size: 110px;
+  }
 }
 
-@media only screen and (max-width: 25em) {
+@media only screen and (max-width: 30em) {
   #grid {
     grid-template-columns: repeat(3, 110px);
     grid-template-rows: repeat(3, 110px);
   }
   h1 {
     font-size: 40px;
+  }
+  .cell {
+    font-size: 90px;
   }
 }
