@@ -56,11 +56,11 @@ class Game {
       this.updateBoard();
 
       let gameOver = false;
-      if (this.isTie()) {
-        this.winnerUpdate(true);
-        gameOver = true;
-      } else if (this.isWinner()) {
+      if (this.isWinner()) {
         this.winnerUpdate(false);
+        gameOver = true;
+      } else if (this.isTie()) {
+        this.winnerUpdate(true);
         gameOver = true;
       }
 
