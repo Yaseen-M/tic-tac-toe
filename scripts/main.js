@@ -66,7 +66,7 @@ class Game {
 
       if (gameOver) {
         this.showEndMsg();
-        this.restart();
+        this.restartGame();
       }
 
       this.turn = Number(!this.turn);
@@ -185,7 +185,7 @@ class Game {
     this.updateBoard();
   }
 
-  restart() {
+  restartGame() {
     this.clearBoard();
     this.winner = 'tie';
   }
