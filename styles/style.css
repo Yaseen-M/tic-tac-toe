@@ -8,13 +8,12 @@ body {
 h1 {
   font-size: 80px;
   text-align: center;
-  text-shadow: 4px 4px #558abb;
+  text-shadow: 4px 4px #222831;
   margin: 0;
 }
 
 a {
   color: #222831;
-  text-decoration: none;
   font-style: italic;
 }
 
@@ -56,7 +55,6 @@ a {
 
 #game-info-container {
   display: flex;
-  background-color: blueviolet;
   height: 220px;
   width: 660px;
   margin: 20px auto;
@@ -67,13 +65,14 @@ a {
 }
 
 #scores {
-  background-color: teal;
+  background-color: #fcfcfc;
   height: 100%;
   width: 40%;
+  color: #222831;
 }
 
 #current-turn {
-  background-color: brown;
+  background-color: #222831;
   height: 100%;
   width: 60%;
 }

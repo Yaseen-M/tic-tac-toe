@@ -41,7 +41,7 @@ class Game {
   }
 
   createGrid() {
-    const grid = document.createElement('div');
+    const grid = document.createElement('section');
     grid.setAttribute('id', 'grid');
 
     for (let i = 0; i < 3; i++) {
@@ -71,7 +71,7 @@ class Game {
       this.gridCoords[x][y] =
         this.turn === 0 ? this.players[0]['symbol'] : this.players[1]['symbol'];
 
-      this.updateBoard();
+      this.updateGrid();
 
       let gameOver = false;
       if (this.isWinner()) {
@@ -91,7 +91,7 @@ class Game {
     }
   }
 
-  updateBoard() {
+  updateGrid() {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         const cell = document.querySelector(`#cell-${i}-${j}`);
@@ -194,17 +194,17 @@ class Game {
     }
   }
 
-  clearBoard() {
+  clearGrid() {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         this.gridCoords[i][j] = '';
       }
     }
-    this.updateBoard();
+    this.updateGrid();
   }
 
   restartGame() {
-    this.clearBoard();
+    this.clearGrid();
     this.winner = 'tie';
   }
 }
