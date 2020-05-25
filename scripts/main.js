@@ -20,6 +20,20 @@ class Game {
     this.turn = 0;
     this.winner = 'tie';
     this.createGrid();
+    this.getPlayerName();
+  }
+
+  async getPlayerName() {
+    for (let i = 0; i < 2; i++) {
+      const { value: name } = await Swal.fire({
+        title: `Player ${i + 1}`,
+        input: 'text',
+        inputPlaceholder: 'Enter your name...',
+        allowOutsideClick: false,
+      });
+      this.players[i]['name'] = name;
+    }
+    console.log(this.players);
   }
 
   createGrid() {
