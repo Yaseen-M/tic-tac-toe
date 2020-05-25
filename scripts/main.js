@@ -30,10 +30,14 @@ class Game {
         input: 'text',
         inputPlaceholder: 'Enter your name...',
         allowOutsideClick: false,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'You must have a name!';
+          }
+        },
       });
       this.players[i]['name'] = name;
     }
-    console.log(this.players);
   }
 
   createGrid() {
