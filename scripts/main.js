@@ -73,7 +73,8 @@ class Game {
     if (this.gridCoords[x][y] === '') {
       this.gridCoords[x][y] =
         this.turn === 0 ? this.players[0]['symbol'] : this.players[1]['symbol'];
-
+      const popSound = new Audio('sounds/pop.wav');
+      popSound.play();
       this.updateGrid();
 
       let gameOver = false;
