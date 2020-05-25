@@ -72,11 +72,12 @@ a {
 
 .widget h3 {
   margin: 12px 0;
+  font-size: 20px;
 }
 
 #current-turn h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 43px;
 }
 
 #scores {
@@ -97,24 +98,56 @@ a {
     grid-template-columns: repeat(3, 180px);
     grid-template-rows: repeat(3, 180px);
   }
-  h1 {
+  #headings h1 {
     font-size: 60px;
   }
   .cell {
     font-size: 150px;
   }
+  #game-info-container {
+    width: 540px;
+    height: 140px;
+  }
+  #current-turn h1 {
+    margin: 0;
+    font-size: 35px;
+  }
+  .widget h2 {
+    font-size: 23px;
+    margin: 13px 0 8px 0;
+  }
+  .widget h3 {
+    margin: 9px 0;
+    font-size: 19px;
+  }
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 43em) {
   #grid {
     grid-template-columns: repeat(3, 130px);
     grid-template-rows: repeat(3, 130px);
   }
-  h1 {
+  #headings h1 {
     font-size: 50px;
   }
   .cell {
     font-size: 110px;
+  }
+  #game-info-container {
+    width: 390px;
+    height: 120px;
+  }
+  #current-turn h1 {
+    margin: 0;
+    font-size: 25px;
+  }
+  .widget h2 {
+    font-size: 23px;
+    margin: 10px 0 6px 0;
+  }
+  .widget h3 {
+    margin: 7px 0;
+    font-size: 17px;
   }
 }
 
@@ -123,10 +156,26 @@ a {
     grid-template-columns: repeat(3, 110px);
     grid-template-rows: repeat(3, 110px);
   }
-  h1 {
+  #headings h1 {
     font-size: 40px;
   }
   .cell {
     font-size: 90px;
+  }
+  #game-info-container {
+    width: 330px;
+    height: 100px;
+  }
+  #current-turn h1 {
+    margin: 0;
+    font-size: 21px;
+  }
+  .widget h2 {
+    font-size: 18px;
+    margin: 8px 0 5px 0;
+  }
+  .widget h3 {
+    margin: 6px 0;
+    font-size: 14px;
   }
 }
