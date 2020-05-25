@@ -38,6 +38,8 @@ class Game {
       });
       this.players[i]['name'] = name;
     }
+
+    this.displayTurn();
   }
 
   createGrid() {
@@ -87,7 +89,7 @@ class Game {
         this.restartGame();
       }
 
-      this.turn = Number(!this.turn);
+      this.changeTurn();
     }
   }
 
@@ -201,6 +203,16 @@ class Game {
       }
     }
     this.updateGrid();
+  }
+
+  changeTurn() {
+    this.turn = Number(!this.turn);
+    this.displayTurn();
+  }
+
+  displayTurn() {
+    const name = document.querySelector('#current-turn h3');
+    name.textContent = this.players[this.turn]['name'];
   }
 
   restartGame() {
