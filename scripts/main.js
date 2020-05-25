@@ -114,7 +114,7 @@ class Game {
       titleText:
         this.winner === 'tie'
           ? `It's a ${this.winner}!`
-          : `Player ${this.winner + 1} wins!`,
+          : `${this.players[this.winner]['name']} wins!`,
       timer: 3000,
       showConfirmButton: false,
       timerProgressBar: true,
