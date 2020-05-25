@@ -28,8 +28,9 @@ class Game {
       const { value: name } = await Swal.fire({
         title: `Player ${i + 1}`,
         input: 'text',
-        inputPlaceholder: 'Enter your name...',
+        inputPlaceholder: 'Enter name here...',
         allowOutsideClick: false,
+        showConfirmButton: false,
         inputValidator: (value) => {
           if (!value) {
             return 'You must have a name!';
@@ -38,10 +39,12 @@ class Game {
       });
       this.players[i]['name'] = name;
     }
+    this.displayTurn();
+    this.displayScores();
   }
 
   createGrid() {
-    const grid = document.createElement('div');
+    const grid = document.createElement('section');
     grid.setAttribute('id', 'grid');
 
     for (let i = 0; i < 3; i++) {
@@ -71,7 +74,7 @@ class Game {
       this.gridCoords[x][y] =
         this.turn === 0 ? this.players[0]['symbol'] : this.players[1]['symbol'];
 
-      this.updateBoard();
+      this.updateGrid();
 
       let gameOver = false;
       if (this.isWinner()) {
@@ -84,14 +87,15 @@ class Game {
 
       if (gameOver) {
         this.showEndMsg();
+        this.displayScores();
         this.restartGame();
       }
 
-      this.turn = Number(!this.turn);
+      this.changeTurn();
     }
   }
 
-  updateBoard() {
+  updateGrid() {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         const cell = document.querySelector(`#cell-${i}-${j}`);
@@ -194,17 +198,35 @@ class Game {
     }
   }
 
-  clearBoard() {
+  clearGrid() {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         this.gridCoords[i][j] = '';
       }
     }
-    this.updateBoard();
+    this.updateGrid();
+  }
+
+  changeTurn() {
+    this.turn = Number(!this.turn);
+    this.displayTurn();
+  }
+
+  displayTurn() {
+    const name = document.querySelector('#current-turn h1');
+    name.textContent = this.players[this.turn]['name'];
+  }
+
+  displayScores() {
+    for (let i = 0; i < 2; i++) {
+      const playerScore = document.querySelector(`#player-${i}`);
+      console.log(this.players[i]['score']);
+      playerScore.textContent = `${this.players[i]['name']}: ${this.players[i]['score']}`;
+    }
   }
 
   restartGame() {
-    this.clearBoard();
+    this.clearGrid();
     this.winner = 'tie';
   }
 }

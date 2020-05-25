@@ -5,16 +5,15 @@ body {
   margin: 0;
 }
 
-h1 {
+#headings h1 {
   font-size: 80px;
   text-align: center;
-  text-shadow: 4px 4px #558abb;
+  text-shadow: 4px 4px #222831;
   margin: 0;
 }
 
 a {
   color: #222831;
-  text-decoration: none;
   font-style: italic;
 }
 
@@ -56,24 +55,39 @@ a {
 
 #game-info-container {
   display: flex;
-  background-color: blueviolet;
-  height: 220px;
+  height: 170px;
   width: 660px;
   margin: 20px auto;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-#game-info-container h2 {
+.widget {
   text-align: center;
 }
 
+.widget h2 {
+  margin: 20px 0 10px 0;
+}
+
+.widget h3 {
+  margin: 12px 0;
+}
+
+#current-turn h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
 #scores {
-  background-color: teal;
+  background-color: #fcfcfc;
   height: 100%;
   width: 40%;
+  color: #222831;
 }
 
 #current-turn {
-  background-color: brown;
+  background-color: #222831;
   height: 100%;
   width: 60%;
 }
