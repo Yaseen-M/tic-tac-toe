@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-h1 {
+#headings h1 {
   font-size: 80px;
   text-align: center;
   text-shadow: 4px 4px #222831;
@@ -58,20 +58,25 @@ a {
   height: 170px;
   width: 660px;
   margin: 20px auto;
-}
-
-#current-turn {
-  text-align: center;
   overflow: hidden;
+  border-radius: 20px;
 }
 
-#current-turn h2 {
-  margin: 20px 0 12px 0;
+.widget {
+  text-align: center;
 }
 
-#current-turn h3 {
+.widget h2 {
+  margin: 20px 0 10px 0;
+}
+
+.widget h3 {
+  margin: 12px 0;
+}
+
+#current-turn h1 {
   margin: 0;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 #scores {

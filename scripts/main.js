@@ -28,8 +28,9 @@ class Game {
       const { value: name } = await Swal.fire({
         title: `Player ${i + 1}`,
         input: 'text',
-        inputPlaceholder: 'Enter your name...',
+        inputPlaceholder: 'Enter name here...',
         allowOutsideClick: false,
+        showConfirmButton: false,
         inputValidator: (value) => {
           if (!value) {
             return 'You must have a name!';
@@ -38,8 +39,8 @@ class Game {
       });
       this.players[i]['name'] = name;
     }
-
     this.displayTurn();
+    this.displayScores();
   }
 
   createGrid() {
@@ -86,6 +87,7 @@ class Game {
 
       if (gameOver) {
         this.showEndMsg();
+        this.displayScores();
         this.restartGame();
       }
 
@@ -211,8 +213,16 @@ class Game {
   }
 
   displayTurn() {
-    const name = document.querySelector('#current-turn h3');
+    const name = document.querySelector('#current-turn h1');
     name.textContent = this.players[this.turn]['name'];
+  }
+
+  displayScores() {
+    for (let i = 0; i < 2; i++) {
+      const playerScore = document.querySelector(`#player-${i}`);
+      console.log(this.players[i]['score']);
+      playerScore.textContent = `${this.players[i]['name']}: ${this.players[i]['score']}`;
+    }
   }
 
   restartGame() {
