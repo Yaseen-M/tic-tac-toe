@@ -3,6 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #fcfcfc;
   margin: 0;
+  font-weight: 600;
 }
 
 #headings h1 {
@@ -75,18 +76,19 @@ a {
   text-align: center;
 }
 
+.widget h1 {
+  margin: 0;
+  font-size: 43px;
+}
+
 .widget h2 {
   margin: 20px 0 10px 0;
+  font-weight: 400;
 }
 
 .widget h3 {
   margin: 12px 0;
   font-size: 20px;
-}
-
-#current-turn h1 {
-  margin: 0;
-  font-size: 43px;
 }
 
 #scores {
@@ -117,8 +119,7 @@ a {
     width: 540px;
     height: 140px;
   }
-  #current-turn h1 {
-    margin: 0;
+  .widget h1 {
     font-size: 35px;
   }
   .widget h2 {
@@ -146,8 +147,7 @@ a {
     width: 390px;
     height: 120px;
   }
-  #current-turn h1 {
-    margin: 0;
+  .widget h1 {
     font-size: 25px;
   }
   .widget h2 {
@@ -160,7 +160,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 31em) {
   #grid {
     grid-template-columns: repeat(3, 110px);
     grid-template-rows: repeat(3, 110px);
@@ -175,8 +175,7 @@ a {
     width: 330px;
     height: 100px;
   }
-  #current-turn h1 {
-    margin: 0;
+  .widget h1 {
     font-size: 21px;
   }
   .widget h2 {
@@ -185,6 +184,28 @@ a {
   }
   .widget h3 {
     margin: 6px 0;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 26em) {
+  #grid {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+  }
+  #game-info-container {
+    width: 250px;
+    height: 80px;
+  }
+  .widget h1 {
+    font-size: 16px;
+  }
+  .widget h2 {
+    font-size: 14px;
+    margin: 5px 0 2px 0;
+  }
+  .widget h3 {
+    margin: 0;
     font-size: 14px;
   }
 }
