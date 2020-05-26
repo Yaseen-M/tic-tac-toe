@@ -1,5 +1,5 @@
 body {
-  background-color: #f7567c;
+  background-color: #615b93;
   font-family: 'Poppins', sans-serif;
   color: #fcfcfc;
   margin: 0;
@@ -10,6 +10,13 @@ body {
   text-align: center;
   text-shadow: 4px 4px #222831;
   margin: 0;
+}
+
+#dev {
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 a {
@@ -38,19 +45,21 @@ a {
 
 .cell {
   font-size: 170px;
-  background-color: #fcfcfc;
-  color: #222831;
-  border: 4px solid #558abb;
+  background-color: #222831;
+  color: #fcfcfc;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#dev {
-  font-size: 13px;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 20px;
+.vertical-middle {
+  border-top: 2px solid #fcfcfc;
+  border-bottom: 2px solid #fcfcfc;
+}
+
+.horizontal-middle {
+  border-right: 2px solid #fcfcfc;
+  border-left: 2px solid #fcfcfc;
 }
 
 #game-info-container {

@@ -39,10 +39,23 @@ class Game {
     // Fills grid with cells
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
+        // Creates cell element
         const cell = document.createElement('div');
 
-        cell.setAttribute('class', 'cell');
+        // Sets cell's ID
         cell.setAttribute('id', `cell-${i}-${j}`);
+
+        // Sets cell's class depending on its position
+        let cellClass = 'cell';
+
+        if (i === 1) {
+          cellClass += ' vertical-middle';
+        }
+        if (j === 1) {
+          cellClass += ' horizontal-middle';
+        }
+
+        cell.setAttribute('class', cellClass);
 
         // Gives cell an onclick function
         cell.onclick = function () {
