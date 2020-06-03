@@ -5,7 +5,7 @@ class Game
     gameWinner
     currentTurn
     procedure new()
-        coordinates = [3, 3]
+        coordinates = [3,3]
         playerOne = {
             name: '',
             score: 0,
@@ -29,4 +29,84 @@ class Game
             endif
         next i
     endclass
+    procedure cellClicked(position)
+        boardX = position[0]
+        boardY = position[1]
+        if coordinates[boardX,boardY] != '' then
+            if turn = 1 then
+                coordinates[boardX,boardY] = 'x'
+            else
+                coordinates[boardX,boardY] = 'o'
+            endif
+            gameIsOver = false
+            if isWinner() == true then
+                gameIsOver = true
+                updateWinner(true)
+                alert(gameWinner + 'won the game!')
+            endif tie() == true then
+                gameIsOver = true
+                updateWinner(false)
+                alert('It ends in a tie!')
+            endif
+            if gameIsOver == true then
+                playAgain()
+            endif
+            if turn == 1 then
+                turn = 2
+            else
+                turn = 1
+            endif
+        endif
+    endprocedure
+    function isWinner()
+        for i=0 to 2
+            if coordinates[0,i] == coordinates[1,i] AND coordinates[1,i] == coordinates[2,i] then
+                return true
+            elseif if coordinates[i,0] == coordinates[i,1] AND coordinates[i,1] == coordinates[i,2] then
+                return true
+            endif
+        next i
+        if coordinates[0,0] == coordinates[1,1] AND coordinates[1,1] == coordinates[2,2] then
+            return true
+        elseif coordinates[0,2] == coordinates[1,1] AND coordinates[2,0] == coordinates[2,2] then
+            return true
+        else
+            return false
+        endif
+    endfunction
+    procedure updateWinner(playerIsWinner)
+        if playerIsWinner == true then
+            gameWinner = currentTurn
+            if gameWinner == 1 then
+                playerOne.score = playerOne.score + 1
+            else
+                playerTwo.score = playerTwo.score + 1
+            endif
+        else
+            gameWinner = 'tie'
+        endif
+    endprocedure
+    function tie()
+        totalCellsFilled = 0
+        for i=0 to 2
+            for j=0 to 2
+                if coordinates[i,j] != '' then
+                    totalCellsFilled = totalCellsFilled + 1
+                endif
+            nextj
+        nexti
+        if totalCellsFilled == 9 then
+            return true
+        else
+            return false
+        endif
+    endfunction
+    procedure playAgain()
+        for i=0 to 2
+            for j=0 to 2
+                coordinates[i,j] = ''
+            nextj
+        nexti
+        gameWinner = 'tie'
+    endprocedure
 endclass
