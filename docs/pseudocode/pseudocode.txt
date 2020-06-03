@@ -1,0 +1,32 @@
+class Game
+    coordinates
+    playerOne
+    playerTwo
+    gameWinner
+    currentTurn
+    procedure new()
+        coordinates = [3, 3]
+        playerOne = {
+            name: '',
+            score: 0,
+            symbol: 'x'
+        }
+        playerTwo = {
+            name: '',
+            score: 0,
+            symbol: 'o'
+        }
+        gameWinner = 'tie'
+        turn = 1
+    endprocedure
+    procedure setupPlayers()
+        for i=1 to 2
+            newPlayerName = input('Enter player name: ')
+            if i == 1 then
+                playerOne['name'] = newPlayerName
+            else
+                playerTwo['name'] = newPlayerName
+            endif
+        next i
+    endclass
+endclass
