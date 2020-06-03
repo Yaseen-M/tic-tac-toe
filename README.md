@@ -6,7 +6,7 @@ This is a small game known as tic tac toe (or naughts and crosses). Players take
 
 ## Usage
 
-Click [here](https://mohammed-ysn.github.io/tic-tac-toe/) to play. Tap on a space on the grid to place a mark.
+Click [here](https://mohammed-ysn.github.io/tic-tac-toe/) to play. Tap on a space on the grid to place a mark. There is no score limit so play as much as you like!
 
 ## Credits
 
