@@ -111,7 +111,7 @@ class Game {
     const y = cellID[7];
 
     // Checks if cell is occupied
-    if (this.gridCoords[x][y] === '') {
+    if (this.isEmpty(this.gridCoords[x][y])) {
       // Cell is empty
       // Grid coords updated with new symbol
       this.gridCoords[x][y] =
@@ -148,6 +148,10 @@ class Game {
       // Changes turn to the opposite player
       this.changeTurn();
     }
+  }
+
+  isEmpty(str) {
+    return str === '';
   }
 
   // Updates DOM grid to match grid field
@@ -192,7 +196,7 @@ class Game {
     // Checks if a cell is filled
     this.gridCoords.forEach((row) => {
       row.forEach((cell) => {
-        if (cell !== '') {
+        if (!this.isEmpty(cell)) {
           cellsFilled++;
         }
       });
@@ -223,7 +227,7 @@ class Game {
     // Checks if any column has three symbols in a row
     for (let i = 0; i < 3; i++) {
       if (
-        this.gridCoords[0][i] !== '' &&
+        !this.isEmpty(this.gridCoords[0][i]) &&
         this.gridCoords[0][i] === this.gridCoords[1][i] &&
         this.gridCoords[1][i] === this.gridCoords[2][i]
       ) {
@@ -239,7 +243,7 @@ class Game {
     // Checks if any row has three symbols in a row
     for (let i = 0; i < 3; i++) {
       if (
-        this.gridCoords[i][0] !== '' &&
+        !this.isEmpty(this.gridCoords[i][0]) &&
         this.gridCoords[i][0] === this.gridCoords[i][1] &&
         this.gridCoords[i][1] === this.gridCoords[i][2]
       ) {
@@ -254,14 +258,14 @@ class Game {
   checkDiagonal() {
     // Checks if any diagonal has three symbols in a row
     if (
-      this.gridCoords[0][0] !== '' &&
+      !this.isEmpty(this.gridCoords[0][0]) &&
       this.gridCoords[0][0] === this.gridCoords[1][1] &&
       this.gridCoords[1][1] === this.gridCoords[2][2]
     ) {
       // Has three in a row
       return true;
     } else if (
-      this.gridCoords[0][2] !== '' &&
+      !this.isEmpty(this.gridCoords[0][2]) &&
       this.gridCoords[0][2] === this.gridCoords[1][1] &&
       this.gridCoords[1][1] === this.gridCoords[2][0]
     ) {
