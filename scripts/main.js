@@ -128,11 +128,11 @@ class Game {
       let gameOver = false;
       if (this.isWinner()) {
         // Updates game winner field to winning player
-        this.winnerUpdate(true);
+        this.updateWinner(true);
         gameOver = true;
       } else if (this.isTie()) {
         // Updates game winner field to tie
-        this.winnerUpdate(false);
+        this.updateWinner(false);
         gameOver = true;
       }
 
@@ -166,7 +166,7 @@ class Game {
   }
 
   // Updates winner field
-  winnerUpdate(playerWins) {
+  updateWinner(playerWins) {
     if (playerWins) {
       // Sets winner to player who last had their turn
       this.winner = this.turn;
