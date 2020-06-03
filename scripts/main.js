@@ -201,13 +201,7 @@ class Game {
         }
       });
     });
-    if (cellsFilled === 9) {
-      // Grid is full
-      return true;
-    } else {
-      // Grid is not full
-      return false;
-    }
+    return cellsFilled === 9;
   }
 
   // Checks if there is a winner
