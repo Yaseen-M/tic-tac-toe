@@ -10,4 +10,5 @@ Click [here](https://mohammed-ysn.github.io/tic-tac-toe/) to play.
 
 ## Credits
 
-Thanks to [onikage22](https://freesound.org/people/onikage22/) from [Freesound](https://freesound.org/) for the 'pop' sound effect.
+- [SweetAlert2](https://sweetalert2.github.io/) for the alerts
+- [onikage22](https://freesound.org/people/onikage22/) from [Freesound](https://freesound.org/) for the 'pop' sound effect
