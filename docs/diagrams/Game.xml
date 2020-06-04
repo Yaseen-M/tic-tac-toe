@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2020-06-04T18:10:19.795Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" etag="_uvQf9n81J0gxWMVbowd" version="13.1.14">
+  <diagram id="xt8VPFfbhTLKiFhk5axG" name="Page-1">
+    <mxGraphModel dx="538" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="413" pageHeight="583" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n_i4Y83XtNLkuR2EHiuF-10" value="Game" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;shadow=0;glass=0;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="57" y="76" width="300" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="n_i4Y83XtNLkuR2EHiuF-11" value="+ coordinates: array&#xa;+ playerOne: object&#xa;+ playerTwo: object&#xa;+ gameWinner: integer&#xa;+ currentTurn: integer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;" vertex="1" parent="n_i4Y83XtNLkuR2EHiuF-10">
+          <mxGeometry y="26" width="300" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="n_i4Y83XtNLkuR2EHiuF-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontSize=15;" vertex="1" parent="n_i4Y83XtNLkuR2EHiuF-10">
+          <mxGeometry y="210" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n_i4Y83XtNLkuR2EHiuF-13" value="+ new()&#xa;+ setupPlayers()&#xa;+ cellClicked(position: array)&#xa;+ isWinner(): boolean&#xa;+ updateWinner(playerIsWinner: boolean)&#xa;+ tie(): boolean&#xa;+ playAgain()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;" vertex="1" parent="n_i4Y83XtNLkuR2EHiuF-10">
+          <mxGeometry y="218" width="300" height="212" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
