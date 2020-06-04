@@ -8,6 +8,12 @@ This is a small game known as tic tac toe (or naughts and crosses). Players take
 
 Click [here](https://mohammed-ysn.github.io/tic-tac-toe/) to play. Tap on a space on the grid to place a mark. There is no score limit so play as much as you like!
 
+## License
+
+### GNU General Public License v3.0
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ## Credits
 
 - [SweetAlert2](https://sweetalert2.github.io/) for the alerts
