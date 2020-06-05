@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a small game known as tic tac toe (or naughts and crosses). Players take turns marking the spaces in the 3×3 grid. The player who succeeds in placing three of their marks - X or O - in a horizontal, vertical, or diagonal row is the winner.
+This is a small game known as tic tac toe (or naughts and crosses). Players take turns marking the spaces in the 3x3 grid. The player who succeeds in placing three of their marks - X or O - in a horizontal, vertical, or diagonal row is the winner.
 
 ## Usage
 
