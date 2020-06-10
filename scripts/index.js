@@ -58,8 +58,8 @@ class Game {
         cell.setAttribute('class', cellClass);
 
         // Gives cell an onclick function
-        cell.onclick = function () {
-          game.cellClick(this.getAttribute('id'));
+        cell.onclick = () => {
+          game.cellClick(cell.getAttribute('id'));
         };
 
         // Pushes cell into grid
